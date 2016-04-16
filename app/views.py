@@ -4,8 +4,16 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.views import generic
 from .models import BlogPost
+
+class HomeView(generic.ListView):
+    template_name = "home.html"
+    context_object_name = "latest_blog_post_list"
+
+    def get_queryset(self):
+        return BlogPost.objects.filter()
+
 class IndexView(generic.ListView):
-   template_name = "index.html"
+   template_name = "blog.html"
    context_object_name = "latest_blog_post_list"
 
    def get_queryset(self):
@@ -14,7 +22,7 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
    model = BlogPost
    context_object_name="post"
-   template_name = "detail.html"
+   template_name = "single.html"
 
    def get_queryset(self):
        """

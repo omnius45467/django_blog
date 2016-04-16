@@ -1,1 +1,96 @@
-test
+{% extends 'layout.html' %}
+{% block main %}
+    {#    <div class="panel panel-default">#}
+    {##}
+    {#            <h2>{{ post.title }}</h2>#}
+    {##}
+    {#            <p>{{ post.body|safe }}</p>#}
+    {##}
+    {#            <p>{{ post.timestamp }}</p>#}
+
+    {#    </div>#}
+    <!--  Page wrap  -->
+    {% load staticfiles %}
+    <div id="page-content" class="page-wrapper">
+        <div class="container">
+            <!--  Page header  -->
+            <section class="project-header padding-onlybottom-lg">
+                <!--  Project Carousel  -->
+                <div class="project-carousel">
+                    <div class="item">
+                        <img src="{% static 'assets/img/project1.jpg' %}" alt="client logo">
+                    </div>
+                    <div class="item">
+                        <img src="{% static 'assets/img/project2.jpg' %}" alt="client logo">
+                    </div>
+                    <div class="item">
+                        <img src="{% static 'assets/img/project3.jpg' %}" alt="client logo">
+                    </div>
+                </div>
+                <!--  END Project Carousel  -->
+                <!--  Project Info  -->
+                <div class="col-md-10 col-md-offset-1 inner-content padding-onlybottom-md">
+                    <h1 class="big padding-onlytop-lg">{{ post.title }}</h1>
+                    <h2 class="padding-onlytop-md">{{ post.body|safe  }}</h2>
+                </div>
+                <div class="col-md-10 col-md-offset-1 inner-content info-project padding-topbottom-null">
+                    <section class="meta-info">
+                        <div class="col-md-6">
+                            <h3 class="small">Tagged</h3>
+                            <ul>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Agency</a></li>
+                                <li><a href="#">Portfolio</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="small">Share via</h3>
+                            <ul>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Google+</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="small">Type/Project</h3>
+                            <ul>
+                                <li><a href="#">Branding</a></li>
+                                <li><a href="#">Logo</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="small">Client</h3>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </section>
+                </div>
+                <!--  Project Info  -->
+            </section>
+            <!--  END Page Header  -->
+        </div>
+    </div>
+    </div>
+    <!--  END Content  -->
+    <!--  Navigation  -->
+    <div class="container">
+        <div class="col-md-10 col-md-offset-1 inner-content padding-onlybottom-lg">
+            <div class="section-navigation">
+                <div class="col-xs-6">
+                    <div class="nav-left">
+                        <a href="#"><em>Prev project</em></a>
+                        <hr>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="nav-right">
+                        <a href="#"><em>Next project</em></a>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  END Navigation  -->
+    </div>
+    <!--  END Post Wrap  -->
+{% endblock %}

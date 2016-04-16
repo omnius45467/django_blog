@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"/>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-12">
+        {% block header %}
+            {% include "header.html" %}
+        {% endblock %}
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-md-12">
+
+        {% block main %}
+
+        {% endblock %}
+    </div>
+</div>
+</div>
+
+</body>
+</html>
