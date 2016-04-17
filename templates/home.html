@@ -14,7 +14,6 @@
                                 {% if home_image %}
                                     {% for i in home_image %}
                                         <li style="background-image:url({{ i.image.url }})"></li>
-                                        {#                        <li style="background-image:url({% static 'assets/img/slider1.jpg' %})"></li>#}
                                     {% endfor %}
                                 {% endif %}
                             </ul>
@@ -27,10 +26,6 @@
                             <di class="col-sm-12 col-md-7">
                                 <p class="heading">{{ p.section_1|safe }}</p>
                             </di>
-                            {#                    <div class=" col-sm-12 col-md-4 col-md-offset-1">#}
-                            {#                        <p>Hello, we are valno, lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit#}
-                            {#                            incidunt corporis voluptatem aspernatur, adipisci reprehenderit.</p>#}
-                            {#                    </div>#}
                         </div>
                     </section>
                 {% endfor %}
@@ -46,7 +41,7 @@
                     {% if blog_post %}
                         {% for q in blog_post %}
                             <article class="col-md-4">
-                                <a href="#">
+                                <a href="{% url 'app:detail' q.id %}">
                                     <img src="{{ q.image.url }}" alt="">
                                 </a>
                                 <div class="row">
@@ -67,15 +62,15 @@
                         {% endfor %}
 
                         </div>
-
+                        <div class="row padding-onlytop-md">
+                            <div class="col-md-12 text-center">
+                                <a href="#" class="btn-alt">View all</a>
+                            </div>
+                        </div>
                     {% else %}
                         <p>No post are available.</p>
                     {% endif %}
-                <div class="row padding-onlytop-md">
-                    <div class="col-md-12 text-center">
-                        <a href="#" class="btn-alt">View all</a>
-                    </div>
-                </div>
+
             </section>
             <!--  END News  -->
             <!--  Services  -->
@@ -117,7 +112,7 @@
                 </div>
             </section>
             <!--  END Services  -->
-
         </div>
         <!--  END Home wrap  -->
+    </div>
 {% endblock %}

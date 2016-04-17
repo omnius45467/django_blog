@@ -1,14 +1,5 @@
 {% extends 'layout.html' %}
 {% block main %}
-    {#    <div class="panel panel-default">#}
-    {##}
-    {#            <h2>{{ post.title }}</h2>#}
-    {##}
-    {#            <p>{{ post.body|safe }}</p>#}
-    {##}
-    {#            <p>{{ post.timestamp }}</p>#}
-
-    {#    </div>#}
     <!--  Page wrap  -->
     {% load staticfiles %}
     <div id="page-content" class="page-wrapper">
@@ -35,14 +26,16 @@
                 </div>
                 <div class="col-md-10 col-md-offset-1 inner-content info-project padding-topbottom-null">
                     <section class="meta-info">
+                    {% if post.tags.all %}
                         <div class="col-md-6">
                             <h3 class="small">Tagged</h3>
                             <ul>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Agency</a></li>
-                                <li><a href="#">Portfolio</a></li>
+                                {% for t in post.tags.all %}
+                                <li><a href="#">{{ t }}</a></li>
+                                {% endfor %}
                             </ul>
                         </div>
+                    {% endif %}
                         <div class="col-md-6">
                             <h3 class="small">Share via</h3>
                             <ul>
@@ -65,21 +58,24 @@
         <div class="col-md-10 col-md-offset-1 inner-content padding-onlybottom-lg">
             <div class="section-navigation">
                 <div class="col-xs-6">
+{#                    {% if post.get_previous_by_created_at %}#}
                     <div class="nav-left">
-                        <a href="#"><em>Prev project</em></a>
+                        <a href="{{post.get_previous_by_pub_date}}"><em>Prev project</em></a>
                         <hr>
                     </div>
+{#                    {% endif %}#}
                 </div>
                 <div class="col-xs-6">
+{#                    {% if post.get_next_by_created_at %}#}
                     <div class="nav-right">
-                        <a href="#"><em>Next project</em></a>
+                        <a href="{{post.get_next_by_pub_date}}"><em>Next project</em></a>
                         <hr>
                     </div>
+{#                    {% endif %}#}
                 </div>
             </div>
         </div>
     </div>
     <!--  END Navigation  -->
-    </div>
-    <!--  END Post Wrap  -->
+
 {% endblock %}
