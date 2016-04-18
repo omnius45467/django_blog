@@ -1,10 +1,11 @@
 {% extends 'layout.html' %}
 
 {% block main %}
-    {% if latest_blog_post_list %}
+
+    {% if post %}
 
         <ul>
-            {% for q in latest_blog_post_list %}
+            {% for q in post %}
                 <li><a href="{% url 'app:detail' q.id %}">{{ q.title }}</a></li>
             {% endfor %}
         </ul>
@@ -12,4 +13,5 @@
     {% else %}
         <p>No post are available.</p>
     {% endif %}
+
 {% endblock %}

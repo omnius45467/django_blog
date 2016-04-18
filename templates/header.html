@@ -1,49 +1,37 @@
-{##}
-{#{% block header %}#}
-
-{#    <div id="navbar" class="navbar-collapse collapse">#}
-{#            <ul class="nav navbar-nav">#}
-{#             <li class="list-item"><a href="/">Home</a></li>#}
-{#        <li class="list-item"><a href="/blog">Blog</a></li>#}
-{##}
-{#            </ul>#}
-{#          </div>#}
-{#{% endblock %}#}
-
-            <!--  Header & Menu  -->
-            <header class="sticky-header">
-                <nav class="navbar navbar-default">
-                    <div id="logo">
-{#                        <a class="navbar-brand" href="/">#}
-{#                              {% load staticfiles %}#}
-{#                            <img src="{% static 'assets/img/logo.png'%}" class="normal" alt="logo">#}
-{#                            <img src="{% static 'assets/img/logo@2x.png'%}" class="retina" alt="logo">#}
-{#                        </a>#}
-                    </div>
-                    <div id="navbar">
-                        <div class="menu-button">
-                            <span class="bar bar-1"></span>
-                            <span class="bar bar-2"></span>
-                            <span class="bar bar-3"></span>
-                        </div>
-                    </div>
-                </nav>
-                <div id="menu">
-                   <div class="container">
-                        <div class="menu-holder">
-                            <ul>
-                                <li class="submenu">
-                                    <a href="/">Tech Underground Fresno</a>
-{#                                    <ul class="sub-menu">#}
-{#                                        <li><a href="/">Home</a></li>#}
-{#                                        <li><a href="/blog">Blog</a></li>#}
-{#                                    </ul>#}
-                                </li>
+<!--  Header & Menu  -->
+<header class="sticky-header">
+    <nav class="navbar navbar-default">
+        <div id="logo">
+            <a class="navbar-brand" href="/">
+                Tech Underground Fresno
+            </a>
+        </div>
+        <div id="navbar">
+            <div class="menu-button">
+                <span class="bar bar-1"></span>
+                <span class="bar bar-2"></span>
+                <span class="bar bar-3"></span>
+            </div>
+        </div>
+    </nav>
+    <div id="menu">
+        <div class="container">
+            <div class="menu-holder">
+                <ul>
+                    <li class="submenu">
+                        <a href="/">Home</a>
+                        <a href="/blog/">Blog</a>
+                        <a href="/about/">About</a>
+                        {#                                    <ul class="sub-menu">#}
+                        {#                                        <li><a href="/">Home</a></li>#}
+                        {#                                        <li><a href="/blog">Blog</a></li>#}
+                        {#                                    </ul>#}
+                    </li>
 
 
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!--  END Header & Menu  -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!--  END Header & Menu  -->

@@ -52,9 +52,20 @@ class TagView(generic.ListView):
     model = Tag
     context_object_name = "tags"
     template_name = "tags.html"
-
     def get_queryset(self):
         return Tag.objects.filter()
+
+
+class BlogView(generic.ListView):
+    model = BlogPost
+    context_object_name = "post"
+    template_name = "blog.html"
+
+    def get_queryset(self):
+        """
+        Excludes any posts that aren't published yet.
+        """
+        return BlogPost.objects.filter()
 
 
 class AboutView(generic.ListView):
