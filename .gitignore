@@ -1,4 +1,8 @@
 db.sqlite3
 app/models.pyc
+app/admin.pyc
+app/urls.pyc
+app/views.pyc
+mysite/urls.pyc
 mysite/settings.pyc
 .idea
