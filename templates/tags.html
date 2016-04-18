@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% block main %}
+    <!--  Page wrap  -->
+    {% load staticfiles %}
+    <!--  Home wrap  -->
+    <div id="page-content" class="home-wrap">
+        <div class="container">
+            <!--  News  -->
+            <section id="news" class="padding-md">
+                <div class="row">
+                    <h2 class="big text-center">
+                        Latest News
+                    </h2>
+
+                    {% if blog_post %}
+                        {% for q in blog_post %}
+                            <article class="col-md-4">
+                                <a href="{% url 'app:detail' q.id %}">
+                                    <img src="{{ q.image.url }}" alt="">
+                                </a>
+                                <div class="row">
+                                    <div class="col-xs-3 news-date">
+                                        <p class="day">{{ q.timestamp|date:"d" }}</p>
+                                        <p class="mounth">{{ q.timestamp|date:"M" }}</p>
+                                    </div>
+                                    <div class="col-xs-6 col-xs-offset-2 news-content">
+                                        <h2 class="title"><a href="{% url 'app:detail' q.id %}">{{ q.title }}</a></h2>
+                                        <a href="{% url 'app:detail' q.id %}">
+                                            <p class="excerpt">
+                                                {{ q.body|truncatewords:22|safe }}
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                        {% endfor %}
+
+                        </div>
+                        <div class="row padding-onlytop-md">
+                            <div class="col-md-12 text-center">
+                                <a href="#" class="btn-alt">View all</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <p>No post are available.</p>
+                    {% endif %}
+
+            </section>
+            <!--  END News  -->
+        </div>
+    </div>
+{% endblock %}

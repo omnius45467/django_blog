@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.views import generic
-from .models import BlogPost, HomePage, HomeImage
+from .models import BlogPost, HomePage, HomeImage, Tag, AuthorBio
 
 
 class HomeView(generic.ListView):
@@ -46,3 +46,21 @@ class DetailView(generic.DetailView):
        Excludes any posts that aren't published yet.
        """
        return BlogPost.objects.filter()
+
+
+class TagView(generic.ListView):
+    model = Tag
+    context_object_name = "tags"
+    template_name = "tags.html"
+
+    def get_queryset(self):
+        return Tag.objects.filter()
+
+
+class AboutView(generic.ListView):
+    model = AuthorBio
+    context_object_name = "authorBio"
+    template_name = "about.html"
+
+    def get_queryset(self):
+        return Tag.objects.filter()

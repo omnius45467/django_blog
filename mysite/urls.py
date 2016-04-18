@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^enkidu/', admin.site.urls),
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^', include('app.urls', namespace="app")),
+    # url(r'^about/', include('app.urls', namespace='app')),
     url(r'^blog/', include('app.urls', namespace="app")), #this line added
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
