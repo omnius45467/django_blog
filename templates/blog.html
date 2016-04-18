@@ -1,17 +1,60 @@
 {% extends 'layout.html' %}
 
 {% block main %}
+    {% load staticfiles %}
 
-    {% if post %}
+    <!--  Page wrap  -->
+    <div id="page-content" class="page-wrapper blog-standard">
+        <div class="container">
+            <!--  Page header  -->
+            <section class="page-header padding-onlybottom-lg">
+                {% if home_image %}
+                    {% for i in home_image %}
+{#                        <img src="{{ i.image.url }})" alt="">#}
+                        <div class="header-background" style="background-image:url({{ i.image.url }})"></div>
+                        {#                                        <li style="background-image:url({{ i.image.url }})"></li>#}
+                    {% endfor %}
+                {% endif %}
 
-        <ul>
-            {% for q in post %}
-                <li><a href="{% url 'app:detail' q.id %}">{{ q.title }}</a></li>
-            {% endfor %}
-        </ul>
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 page-header-title small">
+                        <h1 class="big">Underground Journal</h1>
+                        <h2>Latest News From The Underground</h2>
+                    </div>
+                </div>
+            </section>
+            <!--  END Page header  -->
+            <!--  Content  -->
+            <section>
+                <div class="col-md-10 col-md-offset-1 inner-content">
+                    <!--  Articles  -->
+                    {% if post %}
+                        {% for q in post %}
+                            <article class="post-full-width">
+                                <img src="{{ q.image.url }}" alt="">
 
-    {% else %}
-        <p>No post are available.</p>
-    {% endif %}
+                                <a href="">
+                                    <h3 class="small meta">
+                                        <ul class="author">
+                                            <li>Author: <a href="/about">{{ author.name }}</a></li>
+                                        </ul>
+                                        <ul class="date">
+                                            <li>{{ q.timestamp|date:"d M, Y" }}</li>
+{#                                                    <p class="day">{{ q.timestamp|date:"d" }}</p>#}
+{#                                        <p class="mounth">{{ q.timestamp|date:"M" }}</p>#}
+                                        </ul>
+                                    </h3>
+                                    <h3>{{ q.title }}</h3>
+                                    <p>{{ q.body|truncatewords:22|safe }}</p>
+                                </a>
+                            </article>
+                        {% endfor %}
+                    {% else %}
+                        <p>No post are available.</p>
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+    </div>
 
 {% endblock %}

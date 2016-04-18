@@ -57,9 +57,18 @@ class TagView(generic.ListView):
 
 
 class BlogView(generic.ListView):
-    model = BlogPost
-    context_object_name = "post"
+    # model = BlogPost
+    # context_object_name = "post"
+    context_object_data = "post"
     template_name = "blog.html"
+
+    def get_context_data(self, **kwargs):
+        ctx = super(BlogView, self).get_context_data(**kwargs)
+        ctx['post'] = BlogPost.objects.all()
+        ctx['home_page'] = HomePage.objects.all()
+        ctx['author'] = AuthorBio.objects.first()
+        ctx['home_image'] = HomeImage.objects.all()
+        return ctx
 
     def get_queryset(self):
         """
