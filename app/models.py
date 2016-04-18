@@ -33,3 +33,21 @@ class HomeImage(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class AuthorBio(models.Model):
+    name = models.CharField(max_length=50)
+    bio = models.TextField()
+    image = models.ImageField('img', upload_to='authors', default='post.jpg')
+    timestamp = models.DateTimeField()
+
+    def __str__(self):
+        return self.name
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+    timestamp = models.DateTimeField()
+
+    def __str__(self):
+        return self.name
